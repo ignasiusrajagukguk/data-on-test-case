@@ -1,0 +1,53 @@
+name: data_on_test_case
+description: A new Flutter project.
+
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.5 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  lottie: ^1.4.2
+  provider: ^6.0.5
+  http: ^0.13.5
+  intl: ^0.17.0
+  cupertino_icons: ^1.0.2
+  firebase_auth: ^3.1.4
+  firebase_core: ^1.20.0
+  shared_preferences: ^2.0.7
+  file_picker: ^4.1.4
+  image_picker: ^0.8.4+2
+  flutter_native_image: ^0.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+  flutter_lints: ^2.0.0
+
+dependency_overrides:
+  firebase_core_platform_interface: 4.5.1
+  
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/animation/loading_widget.json
+    - assets/animation/empty_assets.json
+
+  fonts:
+    - family: OpenSansRegular
+      fonts:
+        - asset: fonts/OpenSans-Regular.ttf
+          style: normal
+    - family: OpenSansBold
+      fonts:
+        - asset: fonts/OpenSans-Bold.ttf
+          style: normal
