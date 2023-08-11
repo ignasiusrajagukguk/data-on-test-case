@@ -4,10 +4,7 @@ import 'package:data_on_test_case/common/text_widget/text_widget.dart';
 import 'package:data_on_test_case/provider/university_list_provider.dart';
 import 'package:data_on_test_case/view/screen/dashboard/dashboard.dart';
 import 'package:data_on_test_case/view/screen/profile/profile.dart';
-import 'package:data_on_test_case/view/widget/university_card.dart';
-import 'package:data_on_test_case/view/widget/refresh_indicator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
