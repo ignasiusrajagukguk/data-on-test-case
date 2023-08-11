@@ -4,13 +4,16 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+- This app is made using 'Provider State Management'
 
-A few resources to get you started if this is your first Flutter project:
+The Features that provided are 
+- Login, Register & Log Out via Firebase
+- Save login status in local storage with 
+- Search university by name
+- Get list data of university form API http://universities.hipolabs.com/search?country=Indonesia
+- custom Infinite scroll
+- 'Update image Logic' in detail university screen and profile screen
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Here's the Screenshoots of the app :
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. Splash Screen
