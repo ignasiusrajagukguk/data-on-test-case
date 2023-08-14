@@ -9,23 +9,21 @@ import 'package:data_on_test_case/view/widget/button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-class EditPicture extends StatelessWidget {
-  final bool? isPerson;
+class EditUniversityPicture extends StatelessWidget {
   final String? name;
   final ImageProvider? image;
   final Function(XFile image)? onTakeImage;
   final Function()? onTakeImageFailure;
 
-  const EditPicture(
+  const EditUniversityPicture(
       {Key? key,
       this.image,
       this.onTakeImage,
       this.onTakeImageFailure,
-      this.name,
-      this.isPerson})
+      this.name})
       : super(key: key);
 
-  void _onImageChange(ImageSource source, EditPicture widget) async {
+  void _onImageChange(ImageSource source, EditUniversityPicture widget) async {
     final ImagePicker picker = ImagePicker();
     final image = await picker.pickImage(source: source, imageQuality: 50);
     if (widget.onTakeImage != null && image != null) {
@@ -48,8 +46,8 @@ class EditPicture extends StatelessWidget {
                 shape: BoxShape.circle, color: ConstColors.gray20),
             height: 98,
             width: 98,
-            child: Icon(
-              isPerson == true ? Icons.person : Icons.school,
+            child: const Icon(
+              Icons.school,
               color: ConstColors.dark50,
               size: 70,
             ),
