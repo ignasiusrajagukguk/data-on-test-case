@@ -84,7 +84,7 @@ class _UniversityDetailState extends State<UniversityDetail> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      EditPicture(
+                      EditUniversityPicture(
                         image: image,
                         name: widget.argument.universityModel?.name,
                         onTakeImage: (file) {

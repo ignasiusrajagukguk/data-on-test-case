@@ -1,10 +1,9 @@
-import 'dart:io';
-
 import 'package:data_on_test_case/common/colors.dart';
 import 'package:data_on_test_case/common/separator_widget.dart';
 import 'package:data_on_test_case/common/text_widget/text_widget.dart';
 import 'package:data_on_test_case/provider/university_list_provider.dart';
-import 'package:data_on_test_case/view/widget/edit_photo.dart';
+import 'package:data_on_test_case/view/widget/edit_profile_photo.dart';
+import 'package:data_on_test_case/view_model/shared_preferences/local_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +18,14 @@ class ProfileWidget extends StatefulWidget {
 }
 
 class _ProfileWidgetState extends State<ProfileWidget> {
+  final LocalStorage _localStorage = LocalStorage();
+  String? imagePath = '';
+  @override
+  void initState() {
+    imagePathGetFromLocal();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<UniversityListProvider>(
@@ -48,19 +55,17 @@ class _ProfileWidgetState extends State<ProfileWidget> {
     });
   }
 
+  imagePathGetFromLocal() async {
+    Provider.of<UniversityListProvider>(context, listen: false)
+        .updateImagePerson();
+  }
+
   Widget editPictureWidget(UniversityListProvider provider) {
-    ImageProvider image = const NetworkImage('');
-    if (provider.imagePerson != null) {
-      final path = provider.imagePerson?.path;
-      final file = File(path ?? '');
-      image = FileImage(file);
-    }
-    return EditPicture(
-      isPerson: true,
-      image: image,
+    return EditProfilePicture(
       name: widget.user.email,
       onTakeImage: (file) {
-        provider.updateImagePerson(file);
+        _localStorage.doSetCacheImagePath(file.path);
+        provider.updateImagePerson();
       },
       onTakeImageFailure: () {
         ScaffoldMessenger.of(context).showSnackBar(

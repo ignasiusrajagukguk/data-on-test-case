@@ -4,6 +4,8 @@ import 'package:data_on_test_case/view/model/paging.dart';
 import 'package:data_on_test_case/view/widget/box_dialog.dart';
 import 'package:data_on_test_case/view_model/aunthentication.dart';
 import 'package:data_on_test_case/view_model/shared_preferences/local_storage.dart';
+import 'package:data_on_test_case/view_model/shared_preferences/prefrences_key.dart';
+import 'package:data_on_test_case/view_model/shared_preferences/shared_prefrences_utils.dart';
 import 'package:data_on_test_case/view_model/university_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +18,8 @@ class UniversityListProvider with ChangeNotifier {
   bool isLoading = false;
   BuildContext? _dialogContext;
   int currentIndex = 0;
+  String? imagePath = '';
   XFile? image = XFile('');
-  XFile? imagePerson = XFile('');
 
   List<UniversityModel> _universityList = [];
   List<UniversityModel> get universityList => _universityList;
@@ -144,8 +146,11 @@ class UniversityListProvider with ChangeNotifier {
     image = file;
     notifyListeners();
   }
-  updateImagePerson(XFile file) {
-    imagePerson = file;
+
+  updateImagePerson() async {
+    String? localImagePath =
+        await SharedPreferencesUtils.getString(preferencesPersonalImage);
+    imagePath = localImagePath;
     notifyListeners();
   }
 }

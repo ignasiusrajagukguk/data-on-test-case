@@ -4,7 +4,10 @@ import 'package:data_on_test_case/view_model/shared_preferences/shared_prefrence
 class LocalStorage {
   Future<bool> doSetCacheLoggedIn(String status) async =>
       await SharedPreferencesUtils.setString(preferencesLoggedIn, status);
-  
+
+  Future<bool> doSetCacheImagePath(String imagePath) async =>
+      await SharedPreferencesUtils.setString(
+          preferencesPersonalImage, imagePath);
 
   Future<void> doClearCacheUser() async =>
       await SharedPreferencesUtils.clear(key: preferencesLoggedIn);
